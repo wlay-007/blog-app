@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ title }}</title>
+    <style>
+      .outline {
+       border: 5px solid rgba(0, 0, 0, 0.651);
+       padding: 0 20px;
+      }
+      .outline {
+       background: #353535; /* Цвет фона */
+       color: white; /* Цвет текста */
+       padding: 10px; /* Поля вокруг текста */
+       margin-bottom: 7px; /* Отступ снизу */
+    </style>
+  </head>
+  <center><h1>Посты</h1></center>
+  <body style="background: #e5ffd6;">
+    {%for post in posts%}
+    <center>
+      <div class="outline">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+        <p>Опубликованно : {{ post.published_date }}</p>
+      </div>
+    </center>
+    {%endfor%}
+  </body>
+</html>
