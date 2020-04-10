@@ -1,29 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>{{ title }}</title>
-    <style>
-      .outline {
-       border: 5px solid rgba(0, 0, 0, 0.651);
-       padding: 0 20px;
-      }
-      .outline {
-       background: #353535; /* Цвет фона */
-       color: white; /* Цвет текста */
-       padding: 10px; /* Поля вокруг текста */
-       margin-bottom: 7px; /* Отступ снизу */
-    </style>
-  </head>
-  <center><h1>Посты</h1></center>
-  <body style="background: #e5ffd6;">
-    {%for post in posts%}
-    <center>
-      <div class="outline">
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-        <p>Опубликованно : {{ post.published_date }}</p>
-      </div>
-    </center>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+  <title>Главное меню</title>
+</head>
+
+<body>
+  <div>
+    <h1 class="header">WLAY_SITE</h1>
+    {%for post in posts %}
+    <div class="name1">
+      <h2><a href="">{{ post.title }}</a></h2>
+      <p>{{ post.text|linebreaksbr }}</p>
+      <p>Опубликованно:{{ post.published_date }}</p>
+      <h4><a href="/admin">(редактировать)</a></h4>
+    </div>
     {%endfor%}
-  </body>
+</body>
+
 </html>
